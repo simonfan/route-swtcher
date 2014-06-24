@@ -1,0 +1,5 @@
+//     RouteSwtch
+//     (c) simonfan
+//     RouteSwtch is licensed under the MIT terms.
+
+define("__route-swtcher/route-swtch",["require","exports","module","swtch","lowercase-backbone"],function(e,t,r){{var o=e("swtch"),s=e("lowercase-backbone"),c=s.router.prototype._extractParameters;r.exports=o.extend({execCase:function(e,t){var r=c(e.condition,t);return e.value.apply(e.context,r)}})}}),define("route-swtcher",["require","exports","module","lowercase-backbone","lodash","./__route-swtcher/route-swtch"],function(e,t,r){{var o=e("lowercase-backbone"),s=e("lodash"),c=e("./__route-swtcher/route-swtch"),n=o.router.prototype._routeToRegExp;r.exports=o.router.extend({initialize:function(){o.router.prototype.initialize.apply(this,arguments),this.swtches=[],this.route("*",this.execSwtches)},execSwtches:function(e){s.each(this.swtches,function(t){t.exec(e)},this)},swtch:function(e){var t=c();return this.swtches.push(t),s.each(e,function(e,r){if("default"===r)t.when("default",e);else{var o=n(r);t.when(o,e)}}),this}})}});

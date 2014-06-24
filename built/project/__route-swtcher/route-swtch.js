@@ -1,0 +1,1 @@
+define(["require","exports","module","swtch","lowercase-backbone"],function(e,t,n){var r=e("swtch"),i=e("lowercase-backbone"),s=i.router.prototype._extractParameters,o=n.exports=r.extend({execCase:function(t,n){var r=s(t.condition,n);return t.value.apply(t.context,r)}})});

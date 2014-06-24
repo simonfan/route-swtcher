@@ -1,0 +1,86 @@
+{
+    "project": {
+        "name": "route-swtcher",
+        "version": "0.0.0"
+    },
+    "files": {
+        "src/__route-swtcher/route-swtch.js": {
+            "name": "src/__route-swtcher/route-swtch.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/index.js": {
+            "name": "src/index.js",
+            "modules": {
+                "RouteSwtch": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "RouteSwtch": {
+            "name": "RouteSwtch",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/index.js",
+            "line": 5,
+            "description": "AMD module."
+        }
+    },
+    "classes": {},
+    "classitems": [
+        {
+            "file": "src/__route-swtcher/route-swtch.js",
+            "line": 11,
+            "description": "Override 'execCase' method.",
+            "class": ""
+        },
+        {
+            "file": "src/index.js",
+            "line": 29,
+            "description": "Array to hold all the swtches to be run whenever the\nroute changes",
+            "type": "{Array}",
+            "class": "",
+            "module": "RouteSwtch"
+        },
+        {
+            "file": "src/index.js",
+            "line": 40,
+            "description": "Run the swtches",
+            "params": [
+                {
+                    "name": "route",
+                    "description": "[description]",
+                    "type": "[type]"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "",
+            "module": "RouteSwtch"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nOverride 'execCase' method.",
+            "line": " src/__route-swtcher/route-swtch.js:11"
+        },
+        {
+            "message": "Missing item type\nArray to hold all the swtches to be run whenever the\nroute changes",
+            "line": " src/index.js:29"
+        },
+        {
+            "message": "Missing item type\nRun the swtches",
+            "line": " src/index.js:40"
+        }
+    ]
+}
