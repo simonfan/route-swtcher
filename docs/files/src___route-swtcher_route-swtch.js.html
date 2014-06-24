@@ -101,12 +101,21 @@ define(function (require, exports, module) {
 		 */
 		execCase: function routeSwtchExecCase(c_se, query) {
 
-			// query in the case will be the route matched
-			// c_se.condition will be the route defined as &#x27;some-route/:someparam/:whatever&#x27;
-			var args = _extractParameters(c_se.condition, query);
+			var route    = c_se.condition,
+				callback = c_se.value,
+				context  = c_se.context;
 
-			// exec the callback
-			return c_se.value.apply(c_se.context, args);
+			if (route === &#x27;default&#x27;) {
+				// not a route, just the default behaviour
+				// simply execute the function
+				callback.call(context, query);
+			} else {
+				// a route
+				// extract paramteters
+				var args = _extractParameters(route, query);
+
+				return callback.apply(context, args);
+			}
 		},
 	});
 

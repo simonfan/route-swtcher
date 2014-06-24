@@ -13,12 +13,21 @@ define('__route-swtcher/route-swtch',['require','exports','module','swtch','lowe
 		 */
 		execCase: function routeSwtchExecCase(c_se, query) {
 
-			// query in the case will be the route matched
-			// c_se.condition will be the route defined as 'some-route/:someparam/:whatever'
-			var args = _extractParameters(c_se.condition, query);
+			var route    = c_se.condition,
+				callback = c_se.value,
+				context  = c_se.context;
 
-			// exec the callback
-			return c_se.value.apply(c_se.context, args);
+			if (route === 'default') {
+				// not a route, just the default behaviour
+				// simply execute the function
+				callback.call(context, query);
+			} else {
+				// a route
+				// extract paramteters
+				var args = _extractParameters(route, query);
+
+				return callback.apply(context, args);
+			}
 		},
 	});
 
@@ -60,7 +69,7 @@ define('route-swtcher',['require','exports','module','lowercase-backbone','lodas
 			 */
 			this.swtches = [];
 
-			this.route('*', this.execSwtches);
+			this.route('*route', this.execSwtches);
 		},
 
 		/**
