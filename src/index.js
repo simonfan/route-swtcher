@@ -39,7 +39,7 @@ define(function (require, exports, module) {
 
 			// use backbone.router.prototype.route
 			// as we will override it with custom logic.
-			backbone.router.prototype.route.call(this, '*route', handleRouteEvent);
+			backbone.router.prototype.route.call(this, '*route', this.handleRouteEvent);
 		},
 
 
