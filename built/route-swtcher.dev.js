@@ -69,17 +69,45 @@ define('route-swtcher',['require','exports','module','lowercase-backbone','lodas
 			 */
 			this.swtches = [];
 
-			this.route('*route', this.execSwtches);
+
+			this.mainSwtch = routeSwtch();
+
+			// use backbone.router.prototype.route
+			// as we will override it with custom logic.
+			backbone.router.prototype.route.call(this, '*route', handleRouteEvent);
 		},
 
+
 		/**
-		 * Run the swtches
+		 * Handles 'route' events.
 		 *
 		 * @param  {[type]} route [description]
 		 * @return {[type]}       [description]
 		 */
-		execSwtches: function execSwtches(route) {
+		handleRouteEvent: function handleRouteEvent(route) {
 
+			this.lastRoute = route;
+
+			this.exec(route);
+		},
+
+		/**
+		 * Run the swtches:
+		 * mainSwtch
+		 * and swtches
+		 *
+		 * @param  {[type]} route [description]
+		 * @return {[type]}       [description]
+		 */
+		exec: function exec(route) {
+
+			// if no route is passed, exec the last one
+			route = route || this.lastRoute;
+
+			// exec the main swtch
+			this.mainSwtch.exec(route);
+
+			// exec the subswtches
 			_.each(this.swtches, function (swtch) {
 
 				swtch.exec(route);
@@ -88,7 +116,26 @@ define('route-swtcher',['require','exports','module','lowercase-backbone','lodas
 
 		},
 
+		/**
+		 * Defines a route onto the main swtch
+		 *
+		 * @param  {[type]}   route    [description]
+		 * @param  {Function} callback [description]
+		 * @return {[type]}            [description]
+		 */
+		route: function defineRoute(route, callback) {
+			// [1] create a route regexp
+			var routeRegExp = _routeToRegExp(route);
 
+			this.mainSwtch.when(routeRegExp, callback);
+		},
+
+		/**
+		 * Defines a new swtch.
+		 *
+		 * @param  {[type]} routes [description]
+		 * @return {[type]}        [description]
+		 */
 		swtch: function defineSwtch(routes) {
 			// routes:
 			// { route: callback }

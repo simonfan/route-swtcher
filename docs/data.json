@@ -52,11 +52,70 @@
         },
         {
             "file": "src/index.js",
-            "line": 40,
-            "description": "Run the swtches",
+            "line": 46,
+            "description": "Handles 'route' events.",
             "params": [
                 {
                     "name": "route",
+                    "description": "[description]",
+                    "type": "[type]"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "",
+            "module": "RouteSwtch"
+        },
+        {
+            "file": "src/index.js",
+            "line": 59,
+            "description": "Run the swtches:\nmainSwtch\nand swtches",
+            "params": [
+                {
+                    "name": "route",
+                    "description": "[description]",
+                    "type": "[type]"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "",
+            "module": "RouteSwtch"
+        },
+        {
+            "file": "src/index.js",
+            "line": 84,
+            "description": "Defines a route onto the main swtch",
+            "params": [
+                {
+                    "name": "route",
+                    "description": "[description]",
+                    "type": "[type]"
+                },
+                {
+                    "name": "callback",
+                    "description": "[description]",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "",
+            "module": "RouteSwtch"
+        },
+        {
+            "file": "src/index.js",
+            "line": 98,
+            "description": "Defines a new swtch.",
+            "params": [
+                {
+                    "name": "routes",
                     "description": "[description]",
                     "type": "[type]"
                 }
@@ -79,8 +138,20 @@
             "line": " src/index.js:29"
         },
         {
-            "message": "Missing item type\nRun the swtches",
-            "line": " src/index.js:40"
+            "message": "Missing item type\nHandles 'route' events.",
+            "line": " src/index.js:46"
+        },
+        {
+            "message": "Missing item type\nRun the swtches:\nmainSwtch\nand swtches",
+            "line": " src/index.js:59"
+        },
+        {
+            "message": "Missing item type\nDefines a route onto the main swtch",
+            "line": " src/index.js:84"
+        },
+        {
+            "message": "Missing item type\nDefines a new swtch.",
+            "line": " src/index.js:98"
         }
     ]
 }

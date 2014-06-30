@@ -1,7 +1,7 @@
 {
   "name": "route-swtcher",
   "main": "built/route-swtcher.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Some module...",
   "dependencies": {
     "lowercase-backbone": "~0.2.6",
